@@ -9,6 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as MembrosDoGrupoRouteImport } from './routes/membros-do-grupo'
+import { Route as BolsaDeComponentesRouteImport } from './routes/bolsa-de-componentes'
+import { Route as BagOfHoldingRouteImport } from './routes/bag-of-holding'
+import { Route as AlgibeiraRouteImport } from './routes/algibeira'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
 import { Route as DemoTableRouteImport } from './routes/demo/table'
@@ -23,6 +27,26 @@ import { Route as DemoStartSsrSpaModeRouteImport } from './routes/demo/start.ssr
 import { Route as DemoStartSsrFullSsrRouteImport } from './routes/demo/start.ssr.full-ssr'
 import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ssr.data-only'
 
+const MembrosDoGrupoRoute = MembrosDoGrupoRouteImport.update({
+  id: '/membros-do-grupo',
+  path: '/membros-do-grupo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BolsaDeComponentesRoute = BolsaDeComponentesRouteImport.update({
+  id: '/bolsa-de-componentes',
+  path: '/bolsa-de-componentes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BagOfHoldingRoute = BagOfHoldingRouteImport.update({
+  id: '/bag-of-holding',
+  path: '/bag-of-holding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlgibeiraRoute = AlgibeiraRouteImport.update({
+  id: '/algibeira',
+  path: '/algibeira',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -91,6 +115,10 @@ const DemoStartSsrDataOnlyRoute = DemoStartSsrDataOnlyRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/algibeira': typeof AlgibeiraRoute
+  '/bag-of-holding': typeof BagOfHoldingRoute
+  '/bolsa-de-componentes': typeof BolsaDeComponentesRoute
+  '/membros-do-grupo': typeof MembrosDoGrupoRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/api/names': typeof DemoApiNamesRoute
@@ -106,6 +134,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/algibeira': typeof AlgibeiraRoute
+  '/bag-of-holding': typeof BagOfHoldingRoute
+  '/bolsa-de-componentes': typeof BolsaDeComponentesRoute
+  '/membros-do-grupo': typeof MembrosDoGrupoRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/api/names': typeof DemoApiNamesRoute
@@ -122,6 +154,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/algibeira': typeof AlgibeiraRoute
+  '/bag-of-holding': typeof BagOfHoldingRoute
+  '/bolsa-de-componentes': typeof BolsaDeComponentesRoute
+  '/membros-do-grupo': typeof MembrosDoGrupoRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/api/names': typeof DemoApiNamesRoute
@@ -139,6 +175,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/algibeira'
+    | '/bag-of-holding'
+    | '/bolsa-de-componentes'
+    | '/membros-do-grupo'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/api/names'
@@ -154,6 +194,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/algibeira'
+    | '/bag-of-holding'
+    | '/bolsa-de-componentes'
+    | '/membros-do-grupo'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/api/names'
@@ -169,6 +213,10 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/algibeira'
+    | '/bag-of-holding'
+    | '/bolsa-de-componentes'
+    | '/membros-do-grupo'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/api/names'
@@ -185,6 +233,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlgibeiraRoute: typeof AlgibeiraRoute
+  BagOfHoldingRoute: typeof BagOfHoldingRoute
+  BolsaDeComponentesRoute: typeof BolsaDeComponentesRoute
+  MembrosDoGrupoRoute: typeof MembrosDoGrupoRoute
   DemoTableRoute: typeof DemoTableRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
@@ -201,6 +253,34 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/membros-do-grupo': {
+      id: '/membros-do-grupo'
+      path: '/membros-do-grupo'
+      fullPath: '/membros-do-grupo'
+      preLoaderRoute: typeof MembrosDoGrupoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bolsa-de-componentes': {
+      id: '/bolsa-de-componentes'
+      path: '/bolsa-de-componentes'
+      fullPath: '/bolsa-de-componentes'
+      preLoaderRoute: typeof BolsaDeComponentesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bag-of-holding': {
+      id: '/bag-of-holding'
+      path: '/bag-of-holding'
+      fullPath: '/bag-of-holding'
+      preLoaderRoute: typeof BagOfHoldingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/algibeira': {
+      id: '/algibeira'
+      path: '/algibeira'
+      fullPath: '/algibeira'
+      preLoaderRoute: typeof AlgibeiraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -297,6 +377,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlgibeiraRoute: AlgibeiraRoute,
+  BagOfHoldingRoute: BagOfHoldingRoute,
+  BolsaDeComponentesRoute: BolsaDeComponentesRoute,
+  MembrosDoGrupoRoute: MembrosDoGrupoRoute,
   DemoTableRoute: DemoTableRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
